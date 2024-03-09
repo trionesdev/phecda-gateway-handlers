@@ -1,4 +1,4 @@
-package com.trionesdev.phecda.gateway.process.http
+package com.trionesdev.phecda.gateway.http
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
