@@ -1,7 +1,6 @@
-package com.trionesdev.phecda.gateway.process.mqtt
+package com.trionesdev.phecda.gateway.mqtt.process
 
-import com.trionesdev.phecda.gateway.process.core.GatewayProcess
-import com.trionesdev.phecda.gateway.process.core.GatewayProcessComponent
+import com.trionesdev.phecda.gateway.core.GatewayProcessComponent
 import jakarta.annotation.PostConstruct
 import org.springframework.core.annotation.AnnotationUtils
 import org.springframework.stereotype.Component

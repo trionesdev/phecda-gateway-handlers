@@ -1,4 +1,4 @@
-package com.trionesdev.phecda.gateway.process.core
+package com.trionesdev.phecda.gateway.core
 
 import org.springframework.stereotype.Component
 
