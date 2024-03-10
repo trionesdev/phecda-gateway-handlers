@@ -1,9 +1,7 @@
 package com.trionesdev.phecda.gateway.mqtt.autoconfigure
 
 import com.trionesdev.phecda.gateway.mqtt.process.MqttGatewayProcess
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken
 import org.eclipse.paho.client.mqttv3.MqttCallbackExtended
 import org.eclipse.paho.client.mqttv3.MqttMessage
