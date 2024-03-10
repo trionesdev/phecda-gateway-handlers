@@ -18,6 +18,9 @@ class GatewayMqttCallback(
 
     @OptIn(DelicateCoroutinesApi::class)
     override fun messageArrived(topic: String?, message: MqttMessage?) {
+        if (mqttGatewayProcesses.isEmpty()){
+            return
+        }
         GlobalScope.launch {
             for (process in mqttGatewayProcesses) {
                 if (process.requestMatch(topic, message)) {
