@@ -11,6 +11,9 @@ class GatewayProcessFactory(private val gatewayProcessList: MutableList<GatewayP
 
     @PostConstruct
     fun init() {
+        if (gatewayProcessList.isEmpty()) {
+            return
+        }
         gatewayProcessList.forEach { gatewayProcess ->
             AnnotationUtils.getAnnotation(gatewayProcess.javaClass, GatewayProcessComponent::class.java)
                 ?.let { component ->
