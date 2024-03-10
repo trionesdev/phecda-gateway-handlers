@@ -1,4 +1,4 @@
-package com.trionesdev.phecda.gateway.mqtt
+package com.trionesdev.phecda.gateway.mqtt.autoconfigure
 
 import org.eclipse.paho.client.mqttv3.IMqttAsyncClient
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions

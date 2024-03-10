@@ -1,4 +1,4 @@
-package com.trionesdev.phecda.gateway.mqtt
+package com.trionesdev.phecda.gateway.mqtt.autoconfigure
 
 import com.trionesdev.phecda.gateway.mqtt.process.MqttGatewayProcess
 import kotlinx.coroutines.DelicateCoroutinesApi

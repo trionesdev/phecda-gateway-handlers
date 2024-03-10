@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.trionesdev.phecda.gateway.mqtt.MqttConfiguration
+com.trionesdev.phecda.gateway.mqtt.autoconfigure.MqttConfiguration

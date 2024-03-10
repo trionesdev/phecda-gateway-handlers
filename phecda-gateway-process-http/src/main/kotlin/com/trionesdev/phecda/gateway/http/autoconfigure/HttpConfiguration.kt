@@ -1,4 +1,4 @@
-package com.trionesdev.phecda.gateway.http
+package com.trionesdev.phecda.gateway.http.autoconfigure
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
