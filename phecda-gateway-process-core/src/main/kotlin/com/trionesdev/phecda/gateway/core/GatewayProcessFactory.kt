@@ -1,8 +1,9 @@
 package com.trionesdev.phecda.gateway.core
 
-import jakarta.annotation.PostConstruct
+
 import org.springframework.core.annotation.AnnotationUtils
 import org.springframework.stereotype.Component
+import javax.annotation.PostConstruct
 
 @Component
 class GatewayProcessFactory(private val gatewayProcessList: MutableList<GatewayProcess>) {

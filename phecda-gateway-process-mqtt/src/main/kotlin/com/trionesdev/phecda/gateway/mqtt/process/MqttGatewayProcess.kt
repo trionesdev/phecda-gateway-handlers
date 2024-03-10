@@ -6,5 +6,5 @@ import org.eclipse.paho.client.mqttv3.MqttMessage
 abstract class MqttGatewayProcess : GatewayProcess {
     abstract fun requestMatch(topic: String?, message: MqttMessage?): Boolean
 
-    abstract fun process(topic: String?, message: MqttMessage?)
+    abstract fun requestProcess(topic: String?, message: MqttMessage?)
 }

@@ -1,13 +1,15 @@
 package com.trionesdev.phecda.gateway.mqtt
 
-import jakarta.annotation.PostConstruct
 import org.eclipse.paho.client.mqttv3.IMqttAsyncClient
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions
 import org.springframework.context.annotation.Configuration
+import javax.annotation.PostConstruct
 
 @Configuration
-open class MqttConfiguration(
-    private val mqttClient: IMqttAsyncClient,
-    private val mqttCallback: GatewayMqttCallback
+open class MqttConfiguration (
+    private val mqttConnectOptions: MqttConnectOptions,
+    private var mqttClient: IMqttAsyncClient,
+    private var mqttCallback: GatewayMqttCallback
 ) {
 
     @PostConstruct
@@ -17,6 +19,6 @@ open class MqttConfiguration(
 
     private fun mqttConnect() {
         mqttClient.setCallback(mqttCallback)
-        mqttClient.connect()
+        mqttClient.connect(mqttConnectOptions)
     }
 }

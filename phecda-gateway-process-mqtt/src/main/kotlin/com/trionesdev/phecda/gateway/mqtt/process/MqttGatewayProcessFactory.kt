@@ -1,9 +1,9 @@
 package com.trionesdev.phecda.gateway.mqtt.process
 
 import com.trionesdev.phecda.gateway.core.GatewayProcessComponent
-import jakarta.annotation.PostConstruct
 import org.springframework.core.annotation.AnnotationUtils
 import org.springframework.stereotype.Component
+import javax.annotation.PostConstruct
 
 @Component
 class MqttGatewayProcessFactory(private val mqttGatewayProcessList: MutableList<MqttGatewayProcess>) {
