@@ -1,7 +1,9 @@
 package com.trionesdev.phecda.gateway.mqtt.autoconfigure
 
 import com.trionesdev.phecda.gateway.mqtt.process.MqttGatewayProcess
-import kotlinx.coroutines.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import org.eclipse.paho.client.mqttv3.IMqttAsyncClient
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken
 import org.eclipse.paho.client.mqttv3.MqttCallbackExtended
 import org.eclipse.paho.client.mqttv3.MqttMessage
@@ -9,37 +11,31 @@ import org.springframework.stereotype.Component
 
 @Component
 class GatewayMqttCallback(
+    private var mqttClient: IMqttAsyncClient,
     private val mqttGatewayProcesses: MutableList<MqttGatewayProcess>
 ) : MqttCallbackExtended {
     override fun connectionLost(cause: Throwable?) {
-        TODO("Not yet implemented")
+
     }
 
 
-    @OptIn(DelicateCoroutinesApi::class)
     override fun messageArrived(topic: String?, message: MqttMessage?) {
-        if (mqttGatewayProcesses.isEmpty()){
+
+    }
+
+    override fun deliveryComplete(token: IMqttDeliveryToken?) {
+
+    }
+
+    override fun connectComplete(reconnect: Boolean, serverURI: String?) {
+        if (mqttGatewayProcesses.isEmpty()) {
             return
         }
         GlobalScope.launch {
             for (process in mqttGatewayProcesses) {
-                if (process.requestMatch(topic, message)) {
-                    process.requestProcess(topic, message)
-                    break
-                }
+                process.connectComplete(reconnect, mqttClient)
             }
         }
     }
 
-    override fun deliveryComplete(token: IMqttDeliveryToken?) {
-        TODO("Not yet implemented")
-    }
-
-    override fun connectComplete(reconnect: Boolean, serverURI: String?) {
-
-    }
-
-    fun subscribe() {
-
-    }
 }

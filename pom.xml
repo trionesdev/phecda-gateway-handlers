@@ -99,12 +99,17 @@
             </dependency>
             <dependency>
                 <groupId>com.trionesdev.phecda</groupId>
+                <artifactId>phecda-gateway-process-http</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.trionesdev.phecda</groupId>
                 <artifactId>phecda-gateway-process-mqtt</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.trionesdev.phecda</groupId>
-                <artifactId>phecda-gateway-process-http</artifactId>
+                <artifactId>phecda-gateway-process-tcp</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

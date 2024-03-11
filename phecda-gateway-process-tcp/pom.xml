@@ -44,6 +44,10 @@
             <groupId>com.trionesdev.phecda</groupId>
             <artifactId>phecda-gateway-process-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.projectreactor.netty</groupId>
+            <artifactId>reactor-netty-core</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
