@@ -13,6 +13,9 @@
         <module>phecda-gateway-process-mqtt</module>
         <module>phecda-gateway-process-core</module>
         <module>phecda-gateway-process-http</module>
+        <module>phecda-gateway-process-coap</module>
+        <module>phecda-gateway-process-tcp</module>
+        <module>phecda-gateway-process-udp</module>
     </modules>
 
     <properties>
@@ -36,6 +39,12 @@
                 <artifactId>junit-jupiter-api</artifactId>
                 <version>5.8.2</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.36</version>
+                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.jetbrains.kotlin</groupId>
