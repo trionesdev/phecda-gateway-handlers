@@ -6,7 +6,7 @@ import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse
 import reactor.core.publisher.Mono
 
-class PhecdaHttpGatewayProcess : HttpGatewayProcess() {
+class PhecdaHttpGatewayProcess(kafkaTemplate: KafkaTemplate<String, ByteArray>) : HttpGatewayProcess(kafkaTemplate) {
     override fun requestMatch(request: ServerRequest?): Boolean {
         return false
     }
