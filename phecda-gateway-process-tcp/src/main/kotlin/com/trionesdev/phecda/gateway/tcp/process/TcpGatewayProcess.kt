@@ -1,16 +1,25 @@
 package com.trionesdev.phecda.gateway.tcp.process
 
 import com.trionesdev.phecda.gateway.core.GatewayProcess
-import com.trionesdev.phecda.gateway.core.model.PhecdaCommand
+import com.trionesdev.phecda.gateway.tcp.autoconfigure.TcpConfiguration.Companion.connectionMap
 import io.netty.buffer.ByteBuf
 import io.netty.buffer.EmptyByteBuf
 import io.netty.buffer.Unpooled
 import io.netty.channel.ChannelHandler
 import io.netty.channel.ChannelHandler.Sharable
 import io.netty.channel.ChannelInboundHandlerAdapter
+import reactor.netty.Connection
 
 @Sharable
 abstract class TcpGatewayProcess : ChannelInboundHandlerAdapter(), GatewayProcess {
+    fun getConnection(key: String): Connection? {
+        return connectionMap[key]
+    }
+
+    fun putConnection(key: String, connection: Connection) {
+        connectionMap[key] = connection
+    }
+
     override fun channelRead(ctx: io.netty.channel.ChannelHandlerContext?, msg: Any?) {
         if (msg == null || msg === Unpooled.EMPTY_BUFFER || msg is EmptyByteBuf) {
             return
@@ -30,7 +39,7 @@ abstract class TcpGatewayProcess : ChannelInboundHandlerAdapter(), GatewayProces
         }
     }
 
-    fun handlers():MutableList<ChannelHandler>{
+    fun handlers(): MutableList<ChannelHandler> {
         return mutableListOf()
     }
 
@@ -40,7 +49,4 @@ abstract class TcpGatewayProcess : ChannelInboundHandlerAdapter(), GatewayProces
 
     abstract fun process(data: ByteArray): ByteArray?
 
-    override fun sendCommand(command: PhecdaCommand) {
-
-    }
 }

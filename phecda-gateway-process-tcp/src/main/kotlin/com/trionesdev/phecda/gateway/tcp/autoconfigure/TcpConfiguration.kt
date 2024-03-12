@@ -8,7 +8,9 @@ import org.slf4j.LoggerFactory
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Configuration
 import reactor.core.publisher.Mono
+import reactor.netty.Connection
 import reactor.netty.tcp.TcpServer
+import java.util.concurrent.ConcurrentHashMap
 import javax.annotation.PostConstruct
 
 
@@ -20,6 +22,7 @@ open class TcpConfiguration(
 ) {
     companion object {
         const val AUTHENTICATED: String = "authenticated"
+         val connectionMap = ConcurrentHashMap<String, Connection>()
     }
 
     private var logger: Logger = LoggerFactory.getLogger(TcpConfiguration::class.java)
@@ -69,8 +72,8 @@ open class TcpConfiguration(
             }
             .host(tcpProperties.host)
             .port(tcpProperties.port)
-            .bindNow();
-        server.onDispose().block();
+            .bindNow()
+        server.onDispose().block()
     }
 
 }
