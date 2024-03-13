@@ -2,7 +2,6 @@ package com.trionesdev.phecda.gateway.tcp.autoconfigure
 
 import com.trionesdev.phecda.gateway.tcp.process.TcpGatewayProcess
 import io.netty.buffer.Unpooled
-import io.netty.channel.Channel
 import io.netty.util.AttributeKey
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
