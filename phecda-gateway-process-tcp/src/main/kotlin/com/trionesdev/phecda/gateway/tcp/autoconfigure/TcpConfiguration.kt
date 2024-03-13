@@ -74,7 +74,9 @@ open class TcpConfiguration(
             .host(tcpProperties.host)
             .port(tcpProperties.port)
             .bindNow()
-        server.onDispose().block()
+        server.onDispose().subscribe {
+            logger.info("TcpConfiguration server dispose")
+        }
     }
 
 }

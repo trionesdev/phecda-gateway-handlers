@@ -6,6 +6,6 @@ import org.eclipse.paho.client.mqttv3.IMqttAsyncClient
 import org.eclipse.paho.client.mqttv3.MqttMessage
 import org.springframework.kafka.core.KafkaTemplate
 
-abstract class MqttGatewayProcess(kafkaTemplate: KafkaTemplate<String, ByteArray>) : AbsGatewayProcess(kafkaTemplate) {
+abstract class MqttGatewayProcess : AbsGatewayProcess() {
     abstract fun connectComplete(reconnect: Boolean, mqttClient: IMqttAsyncClient)
 }

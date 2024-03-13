@@ -14,9 +14,11 @@ open class HttpConfiguration(
         return RouterFunctions.route(
             RequestPredicates.all()
         ) { request: ServerRequest? ->
-            for (process: HttpGatewayProcess in httpGatewayProcesses) {
-                if (process.requestMatch(request)) {
-                    return@route process.requestProcess(request)
+            httpGatewayProcesses.find { it.requestMatch(request) }?.let { process ->
+                return@route process.doProcess(request)?.let {
+                    ServerResponse.ok().bodyValue(it)
+                } ?: let {
+                    ServerResponse.ok().build()
                 }
             }
             ServerResponse.ok().build()

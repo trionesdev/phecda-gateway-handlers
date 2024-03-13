@@ -10,8 +10,8 @@ class PhecdaHttpGatewayProcess : HttpGatewayProcess() {
         return false
     }
 
-    override fun requestProcess(request: ServerRequest?): Mono<ServerResponse> {
-        return ServerResponse.ok().build()
+    override fun doProcess(request: ServerRequest?): Any? {
+        return null
     }
 
     override fun sendCommand(command: PhecdaCommand) {

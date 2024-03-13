@@ -4,11 +4,8 @@ import com.alibaba.fastjson2.JSON
 import com.trionesdev.phecda.gateway.core.model.PhecdaCommand
 import org.eclipse.paho.client.mqttv3.IMqttAsyncClient
 import org.eclipse.paho.client.mqttv3.MqttMessage
-import org.springframework.kafka.core.KafkaTemplate
 
-abstract class PhecdaMqttGatewayProcess(kafkaTemplate: KafkaTemplate<String, ByteArray>) : MqttGatewayProcess(
-    kafkaTemplate
-) {
+abstract class PhecdaMqttGatewayProcess : MqttGatewayProcess() {
     private var mqttClient: IMqttAsyncClient? = null
     abstract fun process(topic: String, message: MqttMessage)
 
