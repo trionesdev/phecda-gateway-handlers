@@ -6,10 +6,11 @@ import org.springframework.kafka.core.KafkaTemplate
 
 abstract class AbsGatewayProcess : GatewayProcess {
     protected var kafkaTemplate: KafkaTemplate<String, ByteArray>? = null
-//    constructor()
     constructor(kafkaTemplate: KafkaTemplate<String, ByteArray>) {
         this.kafkaTemplate = kafkaTemplate
     }
+
+    constructor()
 
     override fun postProperties(properties: PhecdaEvent) {
         kafkaTemplate?.send(GatewayProcess.PROPERTIES_POST_TOPIC, JSON.toJSONBytes(properties))

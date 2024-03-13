@@ -1,8 +1,9 @@
 package com.trionesdev.phecda.gateway.tcp.process
 
 import com.trionesdev.phecda.gateway.core.model.PhecdaCommand
+import org.springframework.kafka.core.KafkaTemplate
 
-class PhecdaTcpGatewayProcess: TcpGatewayProcess() {
+class PhecdaTcpGatewayProcess(kafkaTemplate: KafkaTemplate<String, ByteArray>) : TcpGatewayProcess(kafkaTemplate) {
     override fun match(data: ByteArray?): Boolean {
         return false
     }
@@ -15,7 +16,8 @@ class PhecdaTcpGatewayProcess: TcpGatewayProcess() {
        return null
     }
 
-    override fun sendCommand(command: PhecdaCommand) {
-
+    override fun commandTransform(command: PhecdaCommand): ByteArray? {
+        TODO("Not yet implemented")
     }
+
 }

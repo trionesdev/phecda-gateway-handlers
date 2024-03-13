@@ -2,6 +2,7 @@ package com.trionesdev.phecda.gateway.tcp.autoconfigure
 
 import com.trionesdev.phecda.gateway.tcp.process.TcpGatewayProcess
 import io.netty.buffer.Unpooled
+import io.netty.channel.Channel
 import io.netty.util.AttributeKey
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -22,7 +23,7 @@ open class TcpConfiguration(
 ) {
     companion object {
         const val AUTHENTICATED: String = "authenticated"
-         val connectionMap = ConcurrentHashMap<String, Connection>()
+        val connectionMap = ConcurrentHashMap<String, Connection>()
     }
 
     private var logger: Logger = LoggerFactory.getLogger(TcpConfiguration::class.java)

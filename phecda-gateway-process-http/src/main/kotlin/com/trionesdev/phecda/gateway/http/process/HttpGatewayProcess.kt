@@ -7,8 +7,15 @@ import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse
 import reactor.core.publisher.Mono
 
-abstract class HttpGatewayProcess( kafkaTemplate: KafkaTemplate<String, ByteArray>):AbsGatewayProcess(kafkaTemplate) {
-    override fun sendCommand(command: PhecdaCommand){
+abstract class HttpGatewayProcess : AbsGatewayProcess {
+    constructor() : super() {
+    }
+
+    constructor(kafkaTemplate: KafkaTemplate<String, ByteArray>) : super(kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate
+    }
+
+    override fun sendCommand(command: PhecdaCommand) {
 
     }
 
