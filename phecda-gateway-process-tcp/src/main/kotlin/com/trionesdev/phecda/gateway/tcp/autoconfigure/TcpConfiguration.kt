@@ -77,6 +77,7 @@ open class TcpConfiguration(
         server.onDispose().subscribe {
             logger.info("TcpConfiguration server dispose")
         }
+        logger.info("Netty TcpServer started on port {}", tcpProperties.port)
     }
 
 }
