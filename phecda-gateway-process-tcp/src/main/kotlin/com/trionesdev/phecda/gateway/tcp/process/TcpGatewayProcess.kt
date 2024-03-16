@@ -2,6 +2,7 @@ package com.trionesdev.phecda.gateway.tcp.process
 
 import com.alibaba.fastjson2.JSON
 import com.trionesdev.phecda.gateway.core.GatewayProcess
+import com.trionesdev.phecda.gateway.core.GatewayProcessProperties
 import com.trionesdev.phecda.gateway.core.model.PhecdaCommand
 import com.trionesdev.phecda.gateway.core.model.PhecdaEvent
 import com.trionesdev.phecda.gateway.tcp.autoconfigure.TcpConfiguration.Companion.connectionMap
@@ -11,25 +12,29 @@ import io.netty.buffer.Unpooled
 import io.netty.channel.ChannelHandler
 import io.netty.channel.ChannelHandler.Sharable
 import io.netty.channel.ChannelInboundHandlerAdapter
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.kafka.core.KafkaTemplate
 import reactor.core.publisher.Mono
 import reactor.netty.Connection
 
 @Sharable
-abstract class TcpGatewayProcess : ChannelInboundHandlerAdapter, GatewayProcess {
+abstract class TcpGatewayProcess : ChannelInboundHandlerAdapter(), GatewayProcess {
+    @Autowired
+    protected var gatewayProcessProperties: GatewayProcessProperties? = null
+
+    @Autowired
     protected var kafkaTemplate: KafkaTemplate<String, ByteArray>? = null
 
-    constructor()
-    constructor(kafkaTemplate: KafkaTemplate<String, ByteArray>) : this() {
-        this.kafkaTemplate = kafkaTemplate
-    }
 
     override fun postProperties(properties: PhecdaEvent) {
-        kafkaTemplate?.send(GatewayProcess.PROPERTIES_POST_TOPIC, JSON.toJSONBytes(properties))
+        kafkaTemplate?.send(
+            gatewayProcessProperties?.propertiesPostTopic ?: GatewayProcessProperties.PROPERTIES_POST_TOPIC,
+            JSON.toJSONBytes(properties)
+        )
     }
 
     override fun postEvents(properties: PhecdaEvent) {
-        kafkaTemplate?.send(GatewayProcess.EVENTS_POST_TOPIC, JSON.toJSONBytes(properties))
+        kafkaTemplate?.send(gatewayProcessProperties?.eventsPostTopic ?: GatewayProcessProperties.EVENTS_POST_TOPIC, JSON.toJSONBytes(properties))
     }
 
     fun getConnection(key: String): Connection? {
