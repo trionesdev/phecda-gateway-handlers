@@ -31,7 +31,7 @@ open class HttpConfiguration(
         val httpServer = HttpServer.create()
             .handle { request, response ->
                 try {
-                    val gatewayProcess = httpGatewayProcesses.find { it.requestMatch(request) }
+                    val gatewayProcess = httpGatewayProcesses.find { it.match(request) }
                     gatewayProcess?.let {
                         gatewayProcess.doProcess(request)?.let {
                             val res: ByteArray = when (it) {

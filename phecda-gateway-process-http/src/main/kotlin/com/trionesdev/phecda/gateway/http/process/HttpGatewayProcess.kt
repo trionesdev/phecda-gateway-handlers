@@ -10,7 +10,7 @@ abstract class HttpGatewayProcess : AbsGatewayProcess() {
 
     }
 
-    abstract fun requestMatch(request: HttpServerRequest?): Boolean
+    abstract fun match(request: HttpServerRequest?): Boolean
     abstract fun doProcess(request: HttpServerRequest?): Any?
 
 }
