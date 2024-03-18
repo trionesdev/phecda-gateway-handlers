@@ -1,16 +1,14 @@
 package com.trionesdev.phecda.gateway.http.process
 
 import com.trionesdev.phecda.gateway.core.model.PhecdaCommand
-import org.springframework.web.reactive.function.server.ServerRequest
-import org.springframework.web.reactive.function.server.ServerResponse
-import reactor.core.publisher.Mono
+import reactor.netty.http.server.HttpServerRequest
 
 class PhecdaHttpGatewayProcess : HttpGatewayProcess() {
-    override fun requestMatch(request: ServerRequest?): Boolean {
+    override fun requestMatch(request: HttpServerRequest?): Boolean {
         return false
     }
 
-    override fun doProcess(request: ServerRequest?): Any? {
+    override fun doProcess(request: HttpServerRequest?): Any? {
         return null
     }
 
