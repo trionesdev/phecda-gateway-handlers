@@ -1,6 +1,7 @@
 package com.trionesdev.phecda.gateway.core.model
 
 class PhecdaCommand {
+    var version: String? = null
     var method: String? = null
     var productKey: String? = null
     var deviceName: String? = null
