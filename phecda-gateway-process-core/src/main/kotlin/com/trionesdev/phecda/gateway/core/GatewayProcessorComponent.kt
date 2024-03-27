@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component
 @Retention(AnnotationRetention.RUNTIME)
 @MustBeDocumented
 @Component
-annotation class GatewayProcessComponent(
+annotation class GatewayProcessorComponent(
     val productKeys: Array<String> = []
 )

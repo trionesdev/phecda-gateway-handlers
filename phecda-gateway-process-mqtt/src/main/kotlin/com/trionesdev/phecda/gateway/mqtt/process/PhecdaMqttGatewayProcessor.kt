@@ -5,7 +5,7 @@ import com.trionesdev.phecda.gateway.core.model.PhecdaCommand
 import org.eclipse.paho.client.mqttv3.IMqttAsyncClient
 import org.eclipse.paho.client.mqttv3.MqttMessage
 
-abstract class PhecdaMqttGatewayProcess : MqttGatewayProcess() {
+abstract class PhecdaMqttGatewayProcessor : MqttGatewayProcessor() {
     private var mqttClient: IMqttAsyncClient? = null
     abstract fun process(topic: String, message: MqttMessage)
 

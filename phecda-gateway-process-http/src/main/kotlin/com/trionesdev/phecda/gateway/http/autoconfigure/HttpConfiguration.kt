@@ -1,7 +1,7 @@
 package com.trionesdev.phecda.gateway.http.autoconfigure
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.trionesdev.phecda.gateway.http.process.HttpGatewayProcess
+import com.trionesdev.phecda.gateway.http.process.HttpGatewayProcessor
 import io.netty.buffer.Unpooled
 import io.netty.handler.codec.http.HttpResponseStatus
 import org.slf4j.Logger
@@ -17,7 +17,7 @@ import javax.annotation.PostConstruct
 open class HttpConfiguration(
     private val objectMapper: ObjectMapper,
     private val httpProperties: HttpProperties,
-    private val httpGatewayProcesses: MutableList<HttpGatewayProcess>
+    private val httpGatewayProcesses: MutableList<HttpGatewayProcessor>
 ) {
     private var logger: Logger = LoggerFactory.getLogger(HttpConfiguration::class.java)
 

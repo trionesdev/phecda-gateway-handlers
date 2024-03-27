@@ -7,7 +7,7 @@ import com.trionesdev.phecda.gateway.core.model.PhecdaEvent
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.kafka.core.KafkaTemplate
 
-abstract class AbsGatewayProcess : GatewayProcess {
+abstract class AbsGatewayProcessor : GatewayProcessor {
     @Autowired
     protected var gatewayProcessProperties: GatewayProcessProperties? = null
 

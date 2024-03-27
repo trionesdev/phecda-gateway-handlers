@@ -1,7 +1,7 @@
 package com.trionesdev.phecda.gateway.tcp.process
 
 import com.alibaba.fastjson2.JSON
-import com.trionesdev.phecda.gateway.core.GatewayProcess
+import com.trionesdev.phecda.gateway.core.GatewayProcessor
 import com.trionesdev.phecda.gateway.core.GatewayProcessProperties
 import com.trionesdev.phecda.gateway.core.model.PhecdaCommand
 import com.trionesdev.phecda.gateway.core.model.PhecdaEvent
@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono
 import reactor.netty.Connection
 
 @Sharable
-abstract class TcpGatewayProcess : ChannelInboundHandlerAdapter(), GatewayProcess {
+abstract class TcpGatewayProcessor : ChannelInboundHandlerAdapter(), GatewayProcessor {
     @Autowired
     protected var gatewayProcessProperties: GatewayProcessProperties? = null
 

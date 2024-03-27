@@ -1,10 +1,10 @@
 package com.trionesdev.phecda.gateway.http.process
 
-import com.trionesdev.phecda.gateway.core.AbsGatewayProcess
+import com.trionesdev.phecda.gateway.core.AbsGatewayProcessor
 import com.trionesdev.phecda.gateway.core.model.PhecdaCommand
 import reactor.netty.http.server.HttpServerRequest
 
-abstract class HttpGatewayProcess : AbsGatewayProcess() {
+abstract class HttpGatewayProcessor : AbsGatewayProcessor() {
 
     override fun sendCommand(command: PhecdaCommand) {
 

@@ -1,6 +1,6 @@
 package com.trionesdev.phecda.gateway.tcp.autoconfigure
 
-import com.trionesdev.phecda.gateway.tcp.process.TcpGatewayProcess
+import com.trionesdev.phecda.gateway.tcp.process.TcpGatewayProcessor
 import io.netty.buffer.Unpooled
 import io.netty.util.AttributeKey
 import org.slf4j.Logger
@@ -18,7 +18,7 @@ import javax.annotation.PostConstruct
 @EnableConfigurationProperties(TcpProperties::class)
 open class TcpConfiguration(
     private val tcpProperties: TcpProperties,
-    private val tcpGatewayProcessList: MutableList<TcpGatewayProcess>
+    private val tcpGatewayProcessList: MutableList<TcpGatewayProcessor>
 ) {
     companion object {
         const val AUTHENTICATED: String = "authenticated"

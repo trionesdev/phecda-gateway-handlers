@@ -9,17 +9,17 @@ import org.slf4j.LoggerFactory
 import java.util.Objects
 
 @Component
-class GatewayProcessFactory(private val gatewayProcessList: MutableList<GatewayProcess>) {
+class GatewayProcessFactory(private val gatewayProcessorList: MutableList<GatewayProcessor>) {
     private var logger: Logger = LoggerFactory.getLogger(GatewayProcessFactory::class.java)
-    private val processMap: MutableMap<String, GatewayProcess> = mutableMapOf()
+    private val processMap: MutableMap<String, GatewayProcessor> = mutableMapOf()
 
     @PostConstruct
     fun init() {
-        if (gatewayProcessList.isEmpty()) {
+        if (gatewayProcessorList.isEmpty()) {
             return
         }
-        gatewayProcessList.forEach { gatewayProcess ->
-            AnnotationUtils.getAnnotation(gatewayProcess.javaClass, GatewayProcessComponent::class.java)
+        gatewayProcessorList.forEach { gatewayProcess ->
+            AnnotationUtils.getAnnotation(gatewayProcess.javaClass, GatewayProcessorComponent::class.java)
                 ?.let { component ->
                     component.productKeys.forEach { productKey ->
                         val productProcess = processMap[productKey]
@@ -39,7 +39,7 @@ class GatewayProcessFactory(private val gatewayProcessList: MutableList<GatewayP
         }
     }
 
-    fun getGatewayProcess(productKey: String): GatewayProcess? {
+    fun getGatewayProcess(productKey: String): GatewayProcessor? {
         return processMap[productKey]
     }
 }

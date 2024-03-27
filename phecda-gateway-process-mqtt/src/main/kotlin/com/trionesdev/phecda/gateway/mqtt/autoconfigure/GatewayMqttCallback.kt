@@ -1,6 +1,6 @@
 package com.trionesdev.phecda.gateway.mqtt.autoconfigure
 
-import com.trionesdev.phecda.gateway.mqtt.process.MqttGatewayProcess
+import com.trionesdev.phecda.gateway.mqtt.process.MqttGatewayProcessor
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.eclipse.paho.client.mqttv3.IMqttAsyncClient
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component
 @Component
 class GatewayMqttCallback(
     private var mqttClient: IMqttAsyncClient,
-    private val mqttGatewayProcesses: MutableList<MqttGatewayProcess>
+    private val mqttGatewayProcesses: MutableList<MqttGatewayProcessor>
 ) : MqttCallbackExtended {
     override fun connectionLost(cause: Throwable?) {
 

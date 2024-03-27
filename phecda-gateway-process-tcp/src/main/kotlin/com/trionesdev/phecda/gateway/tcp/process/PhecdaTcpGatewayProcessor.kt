@@ -1,9 +1,8 @@
 package com.trionesdev.phecda.gateway.tcp.process
 
 import com.trionesdev.phecda.gateway.core.model.PhecdaCommand
-import org.springframework.kafka.core.KafkaTemplate
 
-abstract class PhecdaTcpGatewayProcess : TcpGatewayProcess() {
+abstract class PhecdaTcpGatewayProcessor : TcpGatewayProcessor() {
     override fun match(data: ByteArray?): Boolean {
         return false
     }
