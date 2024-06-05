@@ -3,6 +3,7 @@ package com.trionesdev.phecda.gateway.tcp.autoconfigure
 import com.trionesdev.phecda.gateway.tcp.process.TcpGatewayProcessor
 import io.netty.buffer.Unpooled
 import io.netty.util.AttributeKey
+import jakarta.annotation.PostConstruct
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.boot.context.properties.EnableConfigurationProperties
@@ -11,7 +12,6 @@ import reactor.core.publisher.Mono
 import reactor.netty.Connection
 import reactor.netty.tcp.TcpServer
 import java.util.concurrent.ConcurrentHashMap
-import javax.annotation.PostConstruct
 
 
 @Configuration

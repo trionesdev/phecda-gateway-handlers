@@ -1,9 +1,9 @@
 package com.trionesdev.phecda.gateway.core
 
 
+import jakarta.annotation.PostConstruct
 import org.springframework.core.annotation.AnnotationUtils
 import org.springframework.stereotype.Component
-import javax.annotation.PostConstruct
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.util.Objects

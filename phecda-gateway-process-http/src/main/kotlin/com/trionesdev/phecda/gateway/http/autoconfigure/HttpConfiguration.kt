@@ -4,13 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.trionesdev.phecda.gateway.http.process.HttpGatewayProcessor
 import io.netty.buffer.Unpooled
 import io.netty.handler.codec.http.HttpResponseStatus
+import jakarta.annotation.PostConstruct
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Configuration
 import reactor.core.publisher.Mono
 import reactor.netty.http.server.HttpServer
-import javax.annotation.PostConstruct
 
 @Configuration
 @EnableConfigurationProperties(HttpProperties::class)
