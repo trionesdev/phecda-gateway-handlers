@@ -5,17 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.trionesdev.phecda</groupId>
-    <artifactId>phecda-gateway-process</artifactId>
+    <artifactId>phecda-gateway-handlers</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Dubhe:GatewayProcess</name>
+    <name>Phecda:GatewayHandler</name>
     <modules>
-        <module>phecda-gateway-process-mqtt</module>
-        <module>phecda-gateway-process-core</module>
-        <module>phecda-gateway-process-http</module>
-        <module>phecda-gateway-process-coap</module>
-        <module>phecda-gateway-process-tcp</module>
-        <module>phecda-gateway-process-udp</module>
+        <module>phecda-gateway-handler-mqtt</module>
+        <module>phecda-gateway-handler-core</module>
+        <module>phecda-gateway-handler-http</module>
+        <module>phecda-gateway-handler-coap</module>
+        <module>phecda-gateway-handler-tcp</module>
+        <module>phecda-gateway-handler-udp</module>
     </modules>
 
     <properties>
@@ -95,22 +95,22 @@
 
             <dependency>
                 <groupId>com.trionesdev.phecda</groupId>
-                <artifactId>phecda-gateway-process-core</artifactId>
+                <artifactId>phecda-gateway-handler-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.trionesdev.phecda</groupId>
-                <artifactId>phecda-gateway-process-http</artifactId>
+                <artifactId>phecda-gateway-handler-http</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.trionesdev.phecda</groupId>
-                <artifactId>phecda-gateway-process-mqtt</artifactId>
+                <artifactId>phecda-gateway-handler-mqtt</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.trionesdev.phecda</groupId>
-                <artifactId>phecda-gateway-process-tcp</artifactId>
+                <artifactId>phecda-gateway-handler-tcp</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
